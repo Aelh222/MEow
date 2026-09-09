@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------
+   DESIGN TOKENS
+   Warm, dim-lit, hand-kept feel — not a "Valentine" palette.
+   Change these to shift the whole site's mood.
+--------------------------------------------------- */
+@theme {
+  --font-display: "Fredoka", ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+  --font-body: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat", cursive;
+
+  --color-paper: #fff6f8;      /* base background — soft white-pink */
+  --color-paper-dim: #ffe9ef;  /* slightly deeper panel background */
+  --color-ink: #4a2b33;        /* body text — warm near-black */
+  --color-plum: #d6336c;       /* headline text — hot pink */
+  --color-rose: #ff6f91;       /* primary accent — bubblegum pink */
+  --color-rose-deep: #e63950;  /* classic ribbon red — buttons, emphasis */
+  --color-gold: #ffd166;       /* secondary accent — bow yellow, dividers */
+  --color-sage: #a8d8ea;       /* quiet contrast — baby blue, used sparingly */
+}
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background: var(--color-paper);
+    /* prevents the elastic overscroll from flashing white on iOS */
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    overscroll-behavior-y: none;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-rose) 35%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-hand { font-family: var(--font-hand); }
+
+  /* soft grain so flat colour fields don't look like a screenshot of a slide */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+}
