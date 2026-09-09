@@ -90,7 +90,7 @@ export const thingsILove: LoveNote[] = [
     message: "The way you remember the little details about me, even when I dont think Ive mentioned them, shows how much you care and pay attention. it makes me feel truly seen and appreciated.",
   },
   {
-    headline: "The way you say my name when you're annoyed with me.",
+    headline: "The way you say my name .",
     message: "The way u said my name when u heard my voice in the corridor the other day when I was playing with your brother , genuinely made my heart flutter.",
   },
 ];
