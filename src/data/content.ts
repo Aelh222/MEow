@@ -127,6 +127,9 @@ export const finalReveal = {
   yesLabel: "Yes ❤️",
   alsoYesLabel: "Of course 🥹",
   celebration: "Then I guess this is officially our new beginning ❤️",
+  sheSaidYes: "And she said yes. ❤️",
+  sheSaidYesPhoto: "/photos/YAYY.jpg",
+  sheSaidYesCaption: "Her holding the flowers I got her",
 };
 
 export const music = {

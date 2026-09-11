@@ -98,6 +98,37 @@ export default function FinalReveal() {
             <p className="max-w-xs font-display text-3xl text-[color:var(--color-plum)] sm:text-4xl">
               {finalReveal.celebration}
             </p>
+
+            {finalReveal.sheSaidYes && (
+              <motion.p
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+                className="mt-4 max-w-xs font-hand text-3xl text-[color:var(--color-rose-deep)] sm:text-4xl"
+              >
+                {finalReveal.sheSaidYes}
+              </motion.p>
+            )}
+
+            {finalReveal.sheSaidYesPhoto && (
+              <motion.figure
+                initial={{ opacity: 0, y: 24, rotate: -3, scale: 0.94 }}
+                animate={{ opacity: 1, y: 0, rotate: -2, scale: 1 }}
+                transition={{ duration: 0.9, delay: 0.9, ease: "easeOut" }}
+                className="mt-8 w-64 max-w-full rounded-2xl bg-white p-3 shadow-[0_18px_36px_-14px_rgba(168,102,112,0.55)] sm:w-72"
+              >
+                <img
+                  src={finalReveal.sheSaidYesPhoto}
+                  alt={finalReveal.sheSaidYesCaption || "She said yes"}
+                  className="aspect-[4/5] w-full rounded-xl object-cover"
+                />
+                {finalReveal.sheSaidYesCaption && (
+                  <figcaption className="mt-3 font-hand text-xl text-[color:var(--color-ink)]/70">
+                    {finalReveal.sheSaidYesCaption}
+                  </figcaption>
+                )}
+              </motion.figure>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
